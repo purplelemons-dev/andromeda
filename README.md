@@ -28,7 +28,7 @@ def fibonacci(until=1000) {
 fibonacci.test_var;    // 42
 fibonacci().test_var;  // 42
 ```
-( you'll see what `comptime` is doing here under [ZIG](###-ZIG) )
+( you'll see what `comptime` is doing here under [ZIG](#zig) )
 * Anywhere (i.e. in any file), at any time. Globals can be created or accessed using `global ${name};` or via `__${name}__`. However, if one file or code block tries to create a global variable that was already initialized in a higher scope, then an error is thrown.
 * Expressions after keywords (e.g. `while`, `if`, `for`, etc.) do not need to be wrapped in curved brackets. (this is subject to change because I'm not sure how hard it is to get a compiler to play nice with that.
 * If no main file is specified in the config file (`.andromeda.toml`), it is assumed to be `./src/__main__.and`.
