@@ -1,7 +1,7 @@
 # andromeda
 my programming language
 
-## overview
+## Overview
 i want it to write like Python, but have a few things pulled in from other languages. A nice thing would be if all Python files could be interactively converted to Andromeda code (e.g. `$ andromeda translate foobar.py`).
 
 ### Basics
@@ -9,7 +9,7 @@ i want it to write like Python, but have a few things pulled in from other langu
 * File extension: `.and`.
 * Uses semicolons and is whitespace-insensitive.
 * Most things are done inside of curly brackets.
-* No semicolons after curly braces because i think it looks stupid. otherwise, most things should have curly braces
+* No semicolons after curly brackets because i think it looks stupid. otherwise, most things should have curly braces
 * It is automatically assumed that a variable is a constant if it is all uppercase, otherwise constants can be declared with `const`.
 * Functions, classes, and files can use the keyword `export ${var/func/etc.};` to allow code of the same or higher scope to access that object. E.g.:
 ```
@@ -29,7 +29,7 @@ fibonacci.test_var;    // 42
 fibonacci().test_var;  // 42
 ```
 ( you'll see what `comptime` is doing here under [ZIG](###-ZIG) )
-* Anywhere (i.e. in any file), at anytime. Globals can be created or accessed using `global ${name};` or via `__${name}__`. However, if one file or code block tries to create a global variable that was already initialized in a higher scope, then an error is thrown.
+* Anywhere (i.e. in any file), at any time. Globals can be created or accessed using `global ${name};` or via `__${name}__`. However, if one file or code block tries to create a global variable that was already initialized in a higher scope, then an error is thrown.
 * Expressions after keywords (e.g. `while`, `if`, `for`, etc.) do not need to be wrapped in curved brackets. (this is subject to change because I'm not sure how hard it is to get a compiler to play nice with that.
 * If no main file is specified in the config file (`.andromeda.toml`), it is assumed to be `./src/__main__.and`.
 * Project name is assumed to be the name of the folder containing the config file unless otherwise specified in config.
@@ -79,7 +79,7 @@ const test = `we are using ${__version__=}`
 * The return value of a block of code is the final statement in the block *without* a semicolon.
 
 ### Java
-* Inline variable declaration from conditional statement:
+* Inline variable declaration from a conditional statement:
 ```java
 if (world.getServer().getOnlinePlayers()[0] instanceof Player player) {
   // `player` was declared inline
