@@ -9,7 +9,7 @@ i want it to write like Python, but have a few things pulled in from other langu
 * File extension: `.and`.
 * Uses semicolons and is whitespace-insensitive.
 * Most things are done inside of curly brackets.
-* No semicolons after curly brackets because i think it looks stupid. otherwise, most things should have curly braces
+* No semicolons after curly brackets because i think it looks stupid. otherwise, most lines should have semicolons. 
 * It is automatically assumed that a variable is a constant if it is all uppercase, otherwise constants can be declared with `const`.
 * Functions, classes, and files can use the keyword `export ${var/func/etc.};` to allow code of the same or higher scope to access that object. E.g.:
 ```
