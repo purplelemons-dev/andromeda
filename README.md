@@ -35,6 +35,7 @@ fibonacci().test_var;  // 42
 * Project name is assumed to be the name of the folder containing the config file unless otherwise specified in config.
 * Version number is read from config and injected into the project's global variables at compile time.
 * I like the way Python imports packages, so it stays.
+* Compiled andromeda files end with `.cand`.
 * All operators are dunder/magic methods and can be modified. E.g.:
 ```
 def foo() {
@@ -44,6 +45,13 @@ foo.__call__ = (*args,**kwargs) => {
   print("calling foo!");
   foo.__call__(*args,**kwargs);
 }
+```
+* Multiple properties can be accessed on an object at once:
+```
+comptime {
+  a = {num: 1, string: "1", prime: false};
+}
+print(a.{prime, string}); // ("1", false)
 ```
 * Project structure should look like this:
 ```
@@ -71,7 +79,7 @@ MyProject
 ```
 * Python f-strings stay, but we also use javascript's formatted strings, and they use Python formatting:
 ```js
-const test = `we are using ${__version__=}`
+const test = `we are using ${__version__=}`;
 ```
 
 ### Rust <sup>(not affiliated with the Rust Foundation)</sup>
@@ -88,4 +96,4 @@ if (world.getServer().getOnlinePlayers()[0] instanceof Player player) {
 * Comments are done with `//` and `/* ... */`.
 
 ### ZIG
-* `comptime { ... }` code block will evaluate everything inside it and contents will be hard-coded into build/executable. 
+* `comptime { ... }` code block will evaluate everything inside it and contents will be hard-coded into build/executable. Comptime vars/funcs/etc. are assumed to be constant.
