@@ -51,7 +51,7 @@ foo.__call__ = (*args,**kwargs) => {
 comptime {
   a = {num: 1, string: "1", prime: false};
 }
-print(a.{prime, string}); // ("1", false)
+print(a.{prime, string}); // (false, "1")
 ```
 * Project structure should look like this:
 ```
@@ -96,4 +96,9 @@ if (world.getServer().getOnlinePlayers()[0] instanceof Player player) {
 * Comments are done with `//` and `/* ... */`.
 
 ### ZIG
-* `comptime { ... }` code block will evaluate everything inside it and contents will be hard-coded into build/executable. Comptime vars/funcs/etc. are assumed to be constant.
+* `comptime { ... }` code block will evaluate everything inside it and contents will be hard-coded into build/executable. Comptime vars/funcs/etc. are always constant. This is useful if static, constant content needs to be loaded into the executable (e.g., lots of floating point numbers, text, etc.) but shouldn't be written inside the source code. For example, the code below will package the contents of the file inside the executable.
+```python
+comptime {
+  const contents = file("/path/to/file", (buffer) => buffer.read());
+}
+```
